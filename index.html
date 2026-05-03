@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="Aurora GT cinematic 3D showcase powered by Three.js and GSAP."
+    />
+    <title>Aurora GT | Immersive Showcase</title>
+  </head>
+  <body>
+    <div class="loader" role="status" aria-live="polite">
+      <div class="loader-copy">
+        <p class="loader-label">Preparing Dual Showcase</p>
+        <h2>Loading Experience</h2>
+      </div>
+      <div class="loader-line" aria-hidden="true">
+        <div class="loader-progress"></div>
+      </div>
+      <p class="loader-value">0%</p>
+    </div>
+
+    <div class="hud" aria-hidden="true">
+      <p class="brand-mark">LAMBORGHINI / AMG</p>
+      <p class="scroll-hint">Scroll to explore</p>
+    </div>
+
+    <div class="progress-indicator" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <canvas id="webgl" aria-hidden="true"></canvas>
+
+    <main class="experience" aria-label="Aurora GT cinematic product showcase">
+      <section class="scroll-section section-intro">
+        <div class="content-block">
+          <p class="eyebrow">Act I</p>
+          <h1>Aventador SVJ</h1>
+          <p>
+            The opening frame belongs to a sharp-edged silhouette, theatrical
+            light, and a slow studio orbit.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section">
+        <div class="content-block">
+          <p class="eyebrow">Front Quarter</p>
+          <h2>Aggression held in control.</h2>
+          <p>
+            The camera stays planted on the nose first, then lets the surfaces
+            catch the light as the body begins to turn.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section">
+        <div class="content-block">
+          <p class="eyebrow">Side Profile</p>
+          <h2>Long lines. Tight cabin. Pure tension.</h2>
+          <p>
+            From the side, the car reads like one continuous gesture under
+            pressure, with every cut and intake working the silhouette.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section">
+        <div class="content-block">
+          <p class="eyebrow">Rear Drama</p>
+          <h2>The first machine exits in shadow.</h2>
+          <p>
+            By the time the rear comes through, the scene shifts from spectacle
+            toward something more technical and deliberate.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section section-handoff">
+        <div class="content-block">
+          <p class="eyebrow">Handoff</p>
+          <h2>One silhouette fades. Another takes the stage.</h2>
+          <p>
+            Lamborghini eases out of the light while Mercedes-AMG GT3 arrives
+            on the same axis with calmer, race-bred purpose.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section section-final section-mercedes">
+        <div class="content-block">
+          <p class="eyebrow">Act II</p>
+          <h2>Mercedes-AMG GT3</h2>
+          <p>
+            The final frame lands on motorsport stance, aero detail, and a
+            disciplined presence that closes the sequence cleanly.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section section-mercedes-detail">
+        <div class="content-block">
+          <p class="eyebrow">Track Stance</p>
+          <h2>Lower, wider, more exact.</h2>
+          <p>
+            Where the Lamborghini felt theatrical, the AMG reads as calibrated
+            pressure: wheel arches loaded, body settled, every line engineered
+            around grip and braking.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section section-mercedes-detail">
+        <div class="content-block">
+          <p class="eyebrow">Aero Surface</p>
+          <h2>Hardware first. Drama second.</h2>
+          <p>
+            Splitter, vents, and rear architecture feel less like ornament and
+            more like race hardware exposed under controlled studio light.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-section section-final section-mercedes-outro">
+        <div class="content-block">
+          <p class="eyebrow">Final Hold</p>
+          <h2>A proper second act, not just a swap.</h2>
+          <p>
+            The page now closes with the Mercedes fully established, giving the
+            ending the same visual weight and progression the Lamborghini gets
+            at the start.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

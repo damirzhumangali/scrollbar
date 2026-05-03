@@ -1,0 +1,331 @@
+:root {
+  color-scheme: dark;
+  --bg: #050505;
+  --panel: rgba(255, 255, 255, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.16);
+  --text: rgba(255, 255, 255, 0.96);
+  --muted: rgba(255, 255, 255, 0.68);
+  --eyebrow: rgba(255, 255, 255, 0.52);
+  --accent: #8eb8ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(135, 170, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 50% 64%, rgba(255, 255, 255, 0.1), transparent 18%),
+    radial-gradient(circle at 50% 85%, rgba(124, 134, 164, 0.12), transparent 24%),
+    linear-gradient(180deg, #0e1118 0%, #050505 46%, #020202 100%);
+  color: var(--text);
+  font-family: "Sora", "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 14%, rgba(255, 255, 255, 0) 32%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 32%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#webgl {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  z-index: 1;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(97, 140, 255, 0.12), transparent 26%),
+    rgba(3, 5, 8, 0.95);
+  text-align: center;
+  padding: 2rem;
+}
+
+.loader-copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.loader-label {
+  margin: 0;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--eyebrow);
+}
+
+.loader h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+}
+
+.loader-line {
+  width: min(26rem, 56vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.loader-progress {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(132, 179, 255, 0.78), #ffffff);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.loader-value {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: clamp(1rem, 1.6vw, 1.5rem) clamp(1rem, 2vw, 2rem);
+}
+
+.brand-mark,
+.scroll-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.scroll-hint {
+  animation: drift 1.8s ease-in-out infinite alternate;
+}
+
+.progress-indicator {
+  position: fixed;
+  top: 50%;
+  right: clamp(0.85rem, 1.8vw, 1.5rem);
+  width: 2px;
+  height: min(36vh, 17rem);
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 4;
+  overflow: hidden;
+}
+
+.progress-indicator span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffffff, rgba(142, 184, 255, 0.6));
+  transform-origin: top center;
+  transform: scaleY(0);
+}
+
+.experience {
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 12vh 8vw;
+}
+
+.scroll-section:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.section-intro {
+  align-items: flex-end;
+  padding-bottom: 16vh;
+}
+
+.section-final {
+  align-items: center;
+}
+
+.section-handoff .content-block,
+.section-mercedes .content-block,
+.section-mercedes-detail .content-block,
+.section-mercedes-outro .content-block {
+  max-width: min(39rem, 100%);
+}
+
+.content-block {
+  max-width: min(36rem, 100%);
+  padding: clamp(1.15rem, 1.7vw, 1.6rem);
+  border: 1px solid var(--panel-border);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 22px 40px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: var(--eyebrow);
+}
+
+.content-block h1,
+.content-block h2 {
+  margin: 0;
+  font-family: "Eurostile Extended", "Sora", "Avenir Next", sans-serif;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.content-block h1 {
+  font-size: clamp(3.4rem, 9vw, 8rem);
+  line-height: 0.88;
+}
+
+.content-block h2 {
+  font-size: clamp(2.35rem, 5.8vw, 5.75rem);
+  line-height: 0.95;
+}
+
+.content-block p:last-child {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 960px) {
+  .scroll-section,
+  .scroll-section:nth-child(even) {
+    justify-content: center;
+  }
+
+  .content-block {
+    max-width: min(32rem, 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .hud {
+    padding: 0.9rem 0.95rem;
+  }
+
+  .progress-indicator {
+    display: none;
+  }
+
+  .brand-mark,
+  .scroll-hint {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+  }
+
+  .scroll-section {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 1rem 9vh;
+    min-height: 100svh;
+  }
+
+  .scroll-section:nth-child(even) {
+    justify-content: center;
+  }
+
+  .section-intro {
+    padding-bottom: 8vh;
+  }
+
+  .content-block {
+    text-align: center;
+    border-radius: 1.15rem;
+    max-width: min(24rem, 100%);
+    padding: 1rem 0.95rem;
+    background: linear-gradient(180deg, rgba(15, 18, 24, 0.78), rgba(8, 9, 12, 0.4));
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .content-block h1 {
+    font-size: clamp(2.85rem, 16vw, 4.6rem);
+    line-height: 0.9;
+  }
+
+  .content-block h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1;
+  }
+
+  .content-block p:last-child {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint {
+    animation: none;
+  }
+}
